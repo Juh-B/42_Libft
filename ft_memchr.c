@@ -6,7 +6,7 @@
 /*   By: jcosta-b <jcosta-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 11:39:20 by jcosta-b          #+#    #+#             */
-/*   Updated: 2024/10/16 16:52:39 by jcosta-b         ###   ########.fr       */
+/*   Updated: 2024/10/17 17:26:56 by jcosta-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (i < n && ((unsigned char *)s)[i])
 	{
-		if (((unsigned char *)s)[i] == c)
-			return ((unsigned char *)&s[i]);
+		if (((unsigned char *)s)[i] == (unsigned char)c)
+			return ((void *)&s[i]);
 		i++;
 	}
 	return (NULL);
@@ -32,7 +32,10 @@ void	*ft_memchr(const void *s, int c, size_t n)
 // int	main(void)
 // {
 // 	char	str[20] = "Amanda Amadora";
+// 	int tab[7] = {-49, 49, 1, -1, 0, -2, 2};
 
-// 	printf("%p\n", memchr(str, 'A', 6));
-// 	printf("%p\n", ft_memchr(str, 'A', 6));
+// 	printf("%p\n", memchr(tab, -1, 7));
+// 	printf("%s\n\n", (char *)memchr(tab, -1, 7));
+// 	printf("%p\n", ft_memchr(tab, -1, 7));
+// 	printf("%s\n", (char *)ft_memchr(tab, -1, 7));
 // }

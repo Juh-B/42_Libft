@@ -6,7 +6,7 @@
 /*   By: jcosta-b <jcosta-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 18:40:55 by jcosta-b          #+#    #+#             */
-/*   Updated: 2024/10/16 16:48:15 by jcosta-b         ###   ########.fr       */
+/*   Updated: 2024/10/17 16:12:30 by jcosta-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ char	*ft_strrchr(const char *string, int c)
 
 	i = 0;
 	last_c = -1;
+	if (c == 0)
+		return ((char *)&string[ft_strlen(string)]);
 	while (string[i])
 	{
 		if (string[i] == c)

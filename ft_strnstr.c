@@ -6,7 +6,7 @@
 /*   By: jcosta-b <jcosta-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 12:06:10 by jcosta-b          #+#    #+#             */
-/*   Updated: 2024/10/16 12:36:30 by jcosta-b         ###   ########.fr       */
+/*   Updated: 2024/10/17 16:02:32 by jcosta-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@
 
 char	*ft_strnstr(const char *str, const char *to_find, size_t n)
 {
-	int	i;
-	int	j;
-	int	to_find_len;
+	size_t	i;
+	size_t	j;
+	size_t	to_find_len;
 
 	i = 0;
 	j = 0;

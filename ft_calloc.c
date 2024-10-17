@@ -6,14 +6,14 @@
 /*   By: jcosta-b <jcosta-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 13:24:29 by jcosta-b          #+#    #+#             */
-/*   Updated: 2024/10/16 16:53:21 by jcosta-b         ###   ########.fr       */
+/*   Updated: 2024/10/17 16:07:18 by jcosta-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-#include <stdlib.h>
-#include <stdio.h>
+// #include <stdlib.h>
+// #include <stdio.h>
 
 // it allocates memory for an array of nmemb elements of size bytes each 
 // and returns a pointer to the allocated memory. The memory is set to zero.

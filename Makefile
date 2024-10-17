@@ -2,13 +2,13 @@
 NAME = libft.a
 
 # .c files
-SRC = $(ft_*.c)
+SRC = $(wildcard ft_*.c)
 
 # .h files
-DEPS = libft.h
+DEPS = $(wildcard *.h)
 
 # Object files
-OBJ = $(SRC:.c = .o)
+OBJ = $(SRC:.c=.o)
 
 # Compilator
 CC = gcc

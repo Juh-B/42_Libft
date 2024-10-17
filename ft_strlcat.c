@@ -6,7 +6,7 @@
 /*   By: jcosta-b <jcosta-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 16:12:18 by jcosta-b          #+#    #+#             */
-/*   Updated: 2024/10/16 16:53:04 by jcosta-b         ###   ########.fr       */
+/*   Updated: 2024/10/17 18:25:48 by jcosta-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	int		dest_len;
 	size_t	length;
 
-	length = ft_strlen(dest) + ft_strlen(src) + 1;
+	length = ft_strlen(dest) + ft_strlen(src);
 	dest_len = ft_strlen(dest);
 	i = 0;
 	if (size == 0)
@@ -37,9 +37,10 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 
 // int	main(void)
 // {
-// 	char	str1[20] = "Bella ";
-// 	char	str2[20] = "Amora";
+// 	char	str1[10] = "rrrrrr";
+// 	char	str2[40] = "lorem ipsum dolor sit amet";
 
-// 	printf("tamanho - %zu\n\n", ft_strlcat(str1, str2, 15));
-// 	printf("Depois\n%s\n%s\n", str1, str2);
+// 	printf("Antes:\n1. %s\n2. %s\n\n", str1, str2);
+// 	printf("tamanho - %zu\n\n", ft_strlcat(str1, str2, 0));
+// 	printf("Depois:\n1. %s\n2. %s\n", str1, str2);
 // }
