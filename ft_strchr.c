@@ -1,0 +1,38 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jcosta-b <jcosta-b@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/15 17:34:36 by jcosta-b          #+#    #+#             */
+/*   Updated: 2024/10/16 16:48:41 by jcosta-b         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+// #include <string.h>
+// #include <stdio.h>
+
+char	*ft_strchr(const char *string, int c)
+{
+	int	i;
+
+	i = 0;
+	while (string[i])
+	{
+		if (string[i] == c)
+			return (&((char *)string)[i]);
+		i++;
+	}
+	return (NULL);
+}
+
+// int	main(void)
+// {
+// 	char	str[20] = "Ola Mundo";
+
+// 	printf("%s\n", strchr(str, 'b'));
+// 	printf("%s\n", ft_strchr(str, 'b'));
+// }
