@@ -6,41 +6,34 @@
 /*   By: jcosta-b <jcosta-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 16:12:18 by jcosta-b          #+#    #+#             */
-/*   Updated: 2024/10/17 18:25:48 by jcosta-b         ###   ########.fr       */
+/*   Updated: 2024/10/21 17:08:50 by jcosta-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-// # include <stddef.h>
-// #include <stdio.h>
+
+// function concatenate strings. both src and dst must be NUL-terminated.
 
 size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-	int		i;
-	int		dest_len;
-	size_t	length;
+	size_t	i;
+	size_t	dest_len;
+	size_t	src_len;
+	size_t	to_copy;
 
-	length = ft_strlen(dest) + ft_strlen(src);
 	dest_len = ft_strlen(dest);
+	src_len = ft_strlen(src);
+	to_copy = size - dest_len - 1;
 	i = 0;
-	if (size == 0)
-		return (length);
-	while (src[i] && ft_strlen(dest) < size)
+	if (size == 0 || dest_len >= size)
+		return (size + src_len);
+	if (to_copy > src_len)
+		to_copy = src_len;
+	while (i < to_copy)
 	{
-		dest[dest_len] = src[i];
-		dest_len++;
+		dest[dest_len + i] = src[i];
 		i++;
 	}
-	dest[dest_len] = '\0';
-	return (length);
+	dest[dest_len + to_copy] = '\0';
+	return (dest_len + src_len);
 }
-
-// int	main(void)
-// {
-// 	char	str1[10] = "rrrrrr";
-// 	char	str2[40] = "lorem ipsum dolor sit amet";
-
-// 	printf("Antes:\n1. %s\n2. %s\n\n", str1, str2);
-// 	printf("tamanho - %zu\n\n", ft_strlcat(str1, str2, 0));
-// 	printf("Depois:\n1. %s\n2. %s\n", str1, str2);
-// }
