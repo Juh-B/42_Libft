@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcosta-b <jcosta-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/14 12:58:58 by jcosta-b          #+#    #+#             */
-/*   Updated: 2024/10/21 16:39:18 by jcosta-b         ###   ########.fr       */
+/*   Created: 2024/10/22 12:01:26 by jcosta-b          #+#    #+#             */
+/*   Updated: 2024/10/22 12:05:55 by jcosta-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// function calculates the length of the string pointed to by s,
-// excluding the terminating null byte ('\0')
+// This function outputs the caracter ’c’ to the given file descriptor.
 
-size_t	ft_strlen(const char *str)
+void	ft_putchar_fd(char c, int fd)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
+	write(fd, &c, 1);
 }

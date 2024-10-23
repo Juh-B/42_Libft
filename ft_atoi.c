@@ -6,14 +6,11 @@
 /*   By: jcosta-b <jcosta-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 12:37:25 by jcosta-b          #+#    #+#             */
-/*   Updated: 2024/10/17 16:51:35 by jcosta-b         ###   ########.fr       */
+/*   Updated: 2024/10/21 16:03:04 by jcosta-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-// #include <stdlib.h>
-// #include <stdio.h>
 
 // converts the initial portion of the string pointed to by str to int.
 // Accept spaces at the beggin, sign and stop when can't find number.
@@ -42,11 +39,3 @@ int	ft_atoi(const char *str)
 	}
 	return (number * sign);
 }
-
-// int	main(void)
-// {
-// 	char	str[20] = "      +2543";
-
-// 	printf("%d\n", atoi(str));
-// 	printf("%d\n", ft_atoi(str));
-// }

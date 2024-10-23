@@ -6,27 +6,29 @@
 /*   By: jcosta-b <jcosta-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 18:40:55 by jcosta-b          #+#    #+#             */
-/*   Updated: 2024/10/17 16:12:30 by jcosta-b         ###   ########.fr       */
+/*   Updated: 2024/10/21 17:07:57 by jcosta-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// #include <string.h>
-// #include <stdio.h>
+// function returns a pointer to the last occurrence
+// of the character c in the string s.
 
 char	*ft_strrchr(const char *string, int c)
 {
-	int	i;
-	int	last_c;
+	int				i;
+	int				last_c;
+	unsigned char	ch;
 
 	i = 0;
 	last_c = -1;
-	if (c == 0)
+	ch = (unsigned char)c;
+	if (ch == '\0')
 		return ((char *)&string[ft_strlen(string)]);
 	while (string[i])
 	{
-		if (string[i] == c)
+		if (string[i] == ch)
 			last_c = i;
 		i++;
 	}
@@ -34,11 +36,3 @@ char	*ft_strrchr(const char *string, int c)
 		return ((char *)&string[last_c]);
 	return (NULL);
 }
-
-// int	main(void)
-// {
-// 	char	str[20] = "Amanda Amadora";
-
-// 	printf("%s\n", strrchr(str, 'B'));
-// 	printf("%s\n", ft_strrchr(str, 'B'));
-// }

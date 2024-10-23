@@ -6,13 +6,13 @@
 /*   By: jcosta-b <jcosta-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 14:57:29 by jcosta-b          #+#    #+#             */
-/*   Updated: 2024/10/17 16:00:53 by jcosta-b         ###   ########.fr       */
+/*   Updated: 2024/10/21 16:04:16 by jcosta-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// unction erases the data in the n bytes of the memory starting at
+// function erases the data in the n bytes of the memory starting at
 // the location pointed to by s, by writing zeros.
 
 void	ft_bzero(void *s, size_t n)
