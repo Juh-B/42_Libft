@@ -1,24 +1,63 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jcosta-b <jcosta-b@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/22 13:14:42 by jcosta-b          #+#    #+#             */
+/*   Updated: 2024/10/23 12:31:52 by jcosta-b         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
+
+// Allocate (with malloc) and return a string
+// that represent an int received as an arg
 
 static int	ft_strlen_itoa(int n)
 {
-	long	number;
-	int		len;
+	int	len;
 
-	number = n;
 	len = 0;
-
 	if (n <= 0)
 	{
-		number = -n;
 		len++;
+		if (n == -2147483648)
+			n = -(n + 1);
+		else
+			n = -n;
 	}
-	while (number > 0)
+	while (n > 0)
 	{
-		number /= 10;
+		n /= 10;
 		len++;
 	}
 	return (len);
+}
+
+static int	ft_negnumber(int n)
+{
+	if (n == -2147483648)
+	{
+		n = -(n + 1);
+		n /= 10;
+	}
+	else
+		n = -n;
+	return (n);
+}
+
+static char	*ft_str_itoa(int n, char *str, int len)
+{
+	while (len >= 0)
+	{
+		if (str[len] != '-')
+			str[len] = (n % 10) + '0';
+		n /= 10;
+		len--;
+	}
+	return (str);
 }
 
 char	*ft_itoa(int n)
@@ -34,15 +73,14 @@ char	*ft_itoa(int n)
 	len--;
 	if (n < 0)
 	{
-		n = -n;
+		if (n == -2147483648)
+		{
+			str[len] = '8';
+			len--;
+		}
+		n = ft_negnumber(n);
 		str[0] = '-';
 	}
-	while (len >= 0)
-	{
-		if (str[len] != '-')
-			str[len] = (n % 10) + '0';
-		n /= 10;
-		len--;
-	}
+	ft_str_itoa(n, str, len);
 	return (str);
 }
