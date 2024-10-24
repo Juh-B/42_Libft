@@ -6,89 +6,70 @@
 /*   By: jcosta-b <jcosta-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 14:54:17 by jcosta-b          #+#    #+#             */
-/*   Updated: 2024/10/23 17:43:50 by jcosta-b         ###   ########.fr       */
+/*   Updated: 2024/10/24 18:18:29 by jcosta-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// #include <stdio.h>
-
 // Allocate (with malloc) and return a copy of 's1' with the 
-// specified characteres removed of begin and the end of 'set'.
+// specified characteres removed of begin and of the end from 'set'.
 
-// recebi um string e um conj d caracteres (segunda str)
-// procu tds as str na string e retira elas
-// retorna um array alocado com a string nova sem as str
-
-static size_t	ft_setstr(char const *s1, char const *set)
+static size_t	ft_start(char const *s1, char const *set)
 {
-	size_t	rm_len;
+	size_t	begin;
 	size_t	i;
-	size_t	j;
 
 	i = 0;
-	j = 0;
-	rm_len = 0;
-	while(s1[i])
+	begin = 0;
+	while (s1[i] && ft_strchr(set, s1[i]) != NULL)
 	{
-		if (j == ft_strlen(set))
-		{
-			rm_len += j;
-			j = 0;
-		}
-		if(s1[i] == set[j] && set[j])
-			j++;
-		else
-			j = 0;
+		begin++;
 		i++;
 	}
-	return (rm_len);
+	return (begin);
+}
+
+static size_t	ft_end(char const *s1, char const *set)
+{
+	size_t	end;
+	size_t	i;
+
+	i = ft_strlen(s1);
+	end = 0;
+	while (i > 0 && ft_strchr(set, s1[i]) != NULL)
+	{
+		end++;
+		i--;
+	}
+	return (end);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*newstr;
-	size_t	rm_len;
-	size_t	news_len;
+	size_t	new_len;
+	size_t	begin;
+	size_t	end;
 	size_t	i;
-	size_t	j;
 
+	begin = ft_start(s1, set);
+	end = 0;
 	i = 0;
-	j = 0;
-	rm_len = ft_setstr(s1, set);
-	news_len = ft_strlen(s1) - rm_len;
-	newstr = (char *)malloc(news_len + 1 * sizeof(char));
+	if (begin < ft_strlen(s1))
+		end = ft_end(s1, set);
+	if (ft_strlen(s1) == begin)
+		new_len = 0;
+	else
+		new_len = ft_strlen(s1) - begin - end + 1;
+	newstr = (char *)malloc((new_len + 1) * sizeof(char));
 	if (newstr == NULL)
 		return (NULL);
-	newstr[news_len] = '\0';
-	news_len--;
-	i = 0;
-	j = 0;
-	rm_len = 0;
-	while(s1[i])
+	newstr[new_len] = '\0';
+	while ((i + begin) <= (ft_strlen(s1) - end))
 	{
-		if (j == ft_strlen(set))
-		{
-			rm_len += j;
-			j = 0;
-		}
-		if(s1[i] == set[j] && set[j])
-			j++;
-		else
-			j = 0;
-		
-		newstr[i - rm_len] = s1[i];
+		newstr[i] = s1[i + begin];
 		i++;
 	}
 	return (newstr);
 }
-
-// int	main(void)
-// {
-// 	char	*str;
-	
-// 	str = ft_strtrim("Banana Bananinha", "na");
-// 	printf("%s\n", str);
-// 	free(str);
-// }
