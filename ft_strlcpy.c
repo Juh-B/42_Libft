@@ -12,9 +12,9 @@
 
 #include "libft.h"
 
-// The functions copy and concatenate strings respectively.
-// it copies up to size - 1 characters from the
-// NUL-terminated string src to dst, NUL-terminating the result.
+// The functions copy strings. it copies up to size
+// 1 characters from the NUL-terminated string src to dst,
+//  NUL-terminating the result.
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
