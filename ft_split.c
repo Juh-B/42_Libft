@@ -6,13 +6,13 @@
 /*   By: jcosta-b <jcosta-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 13:18:48 by jcosta-b          #+#    #+#             */
-/*   Updated: 2024/10/25 13:23:26 by jcosta-b         ###   ########.fr       */
+/*   Updated: 2024/10/25 14:53:05 by jcosta-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <stdlib.h>
+// #include <stdio.h>
+// #include <stdlib.h>
 
 // Allocate (with malloc(3)) and returns an array of strings
 // obtained by dividing by ’s’, using the character ’c’ as a delimiter.
@@ -24,7 +24,7 @@ char	**ft_split(char const *s, char c)
 	unsigned int	j;
 	unsigned int	len;
 	unsigned int	n_str;
-	size_t			arr_len;
+	size_t			str_len;
 	char			**array;
 
 	i = 0;
@@ -37,36 +37,47 @@ char	**ft_split(char const *s, char c)
 			n_str++;
 		i++;
 	}
-	arr_len = ft_strlen(s) + n_str;
-	array = (char **)malloc(n_str * sizeof(char *));
+	array = (char **)malloc((n_str + 1) * sizeof(char *));
 	if (array == NULL)
 		return (NULL);
 
-	arr_len = 0;
+	str_len = 0;
+	i = 0;
 	while (s[i])
 	{
 		if (s[i] == c)
 		{
-			arr_len = i - arr_len;
-			array[j] = (char *)malloc(arr_len + 1 * sizeof(char));
+			str_len = i + 1 - str_len;
+			array[j] = (char *)malloc(str_len + 1 * sizeof(char));
 			if (array[j] == NULL)
 				return (NULL);
-			ft_memcpy(array[j], s[len], arr_len);
-			len = i;
+			ft_memcpy(array[j], &s[len], str_len);
+			array[j][str_len] = '\0';
+			len = i + 1;
 			j++;
+		}
+		else if (s[i + 1] == '\0')
+		{
+			str_len = i + 1 - str_len;
+			array[j] = (char *)malloc(str_len + 1 * sizeof(char));
+			if (array[j] == NULL)
+				return (NULL);
+			ft_memcpy(array[j], &s[len], str_len);
+			array[j][str_len] = '\0';
+			len = i + 1;
 		}
 		i++;
 	}
 	return (array);
 }
 
-int	main(void)
-{
-	char	**str;
+// int	main(void)
+// {
+// 	char	**str;
 
-	str = ft_split("Olaaa Mundooo", ' ');
-	printf("%s\n", *str);
-	// printf("1. %s\n", str[0]);
-	// printf("2. %s\n", str[1]);
-	free(str);
-}
+// 	str = ft_split("Olaaa Mundooo Adoravel", ' ');
+// 	// printf("%s\n", *str);
+// 	// printf("1. %s\n", str[0]);
+// 	// printf("2. %s\n", str[1]);
+// 	// free(str);
+// }
