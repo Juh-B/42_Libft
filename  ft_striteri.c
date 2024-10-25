@@ -1,4 +1,4 @@
-#include "libft.h"
+// #include "libft.h"
 
 // Apply the function 'f' to each character of a string passed
 // as an argument, passing its index as the first argument.
