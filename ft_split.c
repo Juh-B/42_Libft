@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jcosta-b <jcosta-b@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/25 13:18:48 by jcosta-b          #+#    #+#             */
+/*   Updated: 2024/10/25 14:53:05 by jcosta-b         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
-#include <stdio.h>
-#include <stdlib.h>
+// #include <stdio.h>
+// #include <stdlib.h>
 
 // Allocate (with malloc(3)) and returns an array of strings
 // obtained by dividing by ’s’, using the character ’c’ as a delimiter.
@@ -59,13 +71,13 @@ char	**ft_split(char const *s, char c)
 	return (array);
 }
 
-int	main(void)
-{
-	char	**str;
+// int	main(void)
+// {
+// 	char	**str;
 
-	str = ft_split("Oi Mundo Doido", ' ');
-	// printf("%s\n", *str);
-	// printf("1. %s\n", str[0]);
-	// printf("2. %s\n", str[1]);
-	// free(str);
-}
+// 	str = ft_split("Olaaa Mundooo Adoravel", ' ');
+// 	// printf("%s\n", *str);
+// 	// printf("1. %s\n", str[0]);
+// 	// printf("2. %s\n", str[1]);
+// 	// free(str);
+// }
