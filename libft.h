@@ -18,6 +18,13 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+typedef struct  s_list
+{
+  void          *content;
+  struct s_list *next;
+}                t_list;
+
+// First part
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);
@@ -45,7 +52,7 @@ void	*ft_memchr(const void *s, int c, size_t n);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t nmemb, size_t size);
 
-// second part
+// Second part
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
@@ -58,5 +65,7 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char	**ft_split(char const *s, char c);
+
+// Bonus
 
 #endif

@@ -11,6 +11,8 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+// #include <stdio.h>
+// #include <stdlib.h>
 
 // Allocate (with malloc(3)) and returns an array of strings
 // obtained by dividing by ’s’, using the character ’c’ as a delimiter.
@@ -102,6 +104,41 @@ char	**ft_split(char const *s, char c)
 	allocate_array(array, s, c);
 	return (array);
 }
+
+// ------------------------
+
+	// while (s[i])
+	// {
+
+	// 	if (s[i] == c)
+	// 	{
+	// 		str_len = i - str_len;
+	// 		array[j] = (char *)malloc(str_len + 1 * sizeof(char));
+	// 		if (array[j] == NULL)
+	// 		{
+	//       free(array);
+	// 			return (NULL);
+	//     }
+	// 		ft_memcpy(array[j], &s[len], str_len);
+	// 		array[j][str_len] = '\0';
+	//     str_len += 1;
+	// 		len = i + 1;
+	// 		j++;
+	// 	}
+	// 	else if (s[i + 1] == '\0')
+	// 	{
+	// 		str_len = i - str_len;
+	//     str_len = i - str_len;
+	// 		array[j] = (char *)malloc(str_len * sizeof(char));
+	// 		if (array[j] == NULL)
+	//     {
+	//       free(array);
+	// 			return (NULL);
+	//     }
+	// 		ft_memcpy(array[j], &s[len], str_len);
+	// 	}
+	// }
+
 
 int	main(void)
 {
