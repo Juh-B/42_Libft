@@ -6,7 +6,7 @@
 /*   By: jcosta-b <jcosta-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 13:14:42 by jcosta-b          #+#    #+#             */
-/*   Updated: 2024/10/23 12:31:52 by jcosta-b         ###   ########.fr       */
+/*   Updated: 2024/10/30 15:14:13 by jcosta-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static int	ft_negnumber(int n)
 	return (n);
 }
 
-static char	*ft_str_itoa(int n, char *str, int len)
+static void	ft_str_itoa(int n, char *str, int len)
 {
 	while (len >= 0)
 	{
@@ -57,7 +57,6 @@ static char	*ft_str_itoa(int n, char *str, int len)
 		n /= 10;
 		len--;
 	}
-	return (str);
 }
 
 char	*ft_itoa(int n)
@@ -66,7 +65,7 @@ char	*ft_itoa(int n)
 	int		len;
 
 	len = ft_strlen_itoa(n);
-	str = (char *)malloc((len + 1) * sizeof(char));
+	str = ft_calloc(len + 1, sizeof(char));
 	if (str == NULL)
 		return (NULL);
 	str[len] = '\0';

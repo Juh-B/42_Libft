@@ -6,7 +6,7 @@
 /*   By: jcosta-b <jcosta-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 13:24:29 by jcosta-b          #+#    #+#             */
-/*   Updated: 2024/10/21 16:03:37 by jcosta-b         ###   ########.fr       */
+/*   Updated: 2024/10/30 15:24:32 by jcosta-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*ptr;
 
+	if (nmemb != 0 && size > (size_t) - 1 / nmemb)
+		return (NULL);
 	ptr = (void *)malloc(nmemb * size);
 	if (ptr == NULL)
 		return (NULL);

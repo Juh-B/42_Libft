@@ -6,7 +6,7 @@
 /*   By: jcosta-b <jcosta-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 13:26:38 by jcosta-b          #+#    #+#             */
-/*   Updated: 2024/10/21 16:30:08 by jcosta-b         ###   ########.fr       */
+/*   Updated: 2024/10/30 15:47:04 by jcosta-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 // function fills the first n bytes of the memory area
 // pointed to by s with the constant byte c.
 
-void	*ft_memset(void *dest, int c, size_t count)
+void	*ft_memset(void *s, int c, size_t n)
 {
 	size_t	i;
 
 	i = 0;
-	while (i < count)
+	while (i < n)
 	{
-		((unsigned char *)dest)[i] = c;
+		((unsigned char *)s)[i] = c;
 		i++;
 	}
-	return (dest);
+	return (s);
 }

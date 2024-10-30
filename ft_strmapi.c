@@ -6,7 +6,7 @@
 /*   By: jcosta-b <jcosta-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 11:24:06 by jcosta-b          #+#    #+#             */
-/*   Updated: 2024/10/25 11:39:55 by jcosta-b         ###   ########.fr       */
+/*   Updated: 2024/10/25 14:52:43 by jcosta-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	unsigned int	i;
-	size_t		len;
-	char		*newstr;
+	size_t			len;
+	char			*newstr;
 
 	len = ft_strlen(s);
 	newstr = (char *)malloc((len + 1) * sizeof(char));

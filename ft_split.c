@@ -6,54 +6,48 @@
 /*   By: jcosta-b <jcosta-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 13:18:48 by jcosta-b          #+#    #+#             */
-/*   Updated: 2024/10/25 14:53:05 by jcosta-b         ###   ########.fr       */
+/*   Updated: 2024/10/30 16:00:53 by jcosta-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-// #include <stdio.h>
-// #include <stdlib.h>
 
 // Allocate (with malloc(3)) and returns an array of strings
 // obtained by dividing by ’s’, using the character ’c’ as a delimiter.
 // The array must end with a NULL pointer.
 
-static size_t elem_array(const char *s, char c)
+static size_t	elem_array(const char *s, char c)
 {
 	size_t	i;
 	size_t	array_len;
-	int			control_elem;
+	int		word_control;
 
-	 i = 0;
-	 array_len = 0;
-	 control_elem = 0;
+	i = 0;
+	array_len = 0;
+	word_control = 0;
 	while (s[i])
 	{
-		if (s[i] == c && control_elem == 0)
+		if (s[i] != c && word_control == 0)
 		{
+			word_control = 1;
 			array_len++;
-			control_elem = 1;
 		}
-		else
-			control_elem = 0;
-		while (s[i] == c && s[i + 1] == c)
-			i++;
-		if (s[i] != c && s[i + 1] == '\0')
-			array_len++;
+		else if (s[i] == c)
+			word_control = 0;
 		i++;
 	}
 	return (array_len);
 }
 
-static char *new_string(const char *str, unsigned int	i, unsigned int	start)
+static char	*new_string(const char *str, unsigned int i, unsigned int start)
 {
 	size_t	str_len;
-	char  	*new_str;
+	char	*new_str;
 
 	str_len = i - start;
-	if (str[i + 1] == '\0')
-		str_len++;
 	new_str = (char *)malloc(str_len + 1 * sizeof(char));
+	if (new_str == NULL)
+		return (NULL);
 	ft_memcpy(new_str, str, str_len);
 	new_str[str_len] = '\0';
 	return (new_str);
@@ -70,31 +64,24 @@ static char	*allocate_array(char **array, char const *s, char c)
 	start = 0;
 	while (s[i])
 	{
-		if (s[i] == c || s[i + 1] == '\0')
+		if (s[i] != c)
 		{
-			array[j] = new_string(s + start, i, start);
-			if (array[j] == NULL)
-			{
-				free(array);
-				return (NULL);
-			}
-			start = i + 1;
-			j++;
-			while (s[i + 1] == c)
-			{
+			start = i;
+			while (s[i] && s[i] != c)
 				i++;
-				start++;
-			}
+			array[j] = new_string(s + start, i, start);
+			j++;
 		}
-		i++;
+		else
+			i++;
 	}
-	return (array);
+	return (*array);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	size_t			array_len;
-	char			**array;
+	size_t	array_len;
+	char	**array;
 
 	array_len = elem_array(s, c);
 	array = (char **)malloc((array_len + 1) * sizeof(char *));
@@ -103,50 +90,4 @@ char	**ft_split(char const *s, char c)
 	array[array_len] = NULL;
 	allocate_array(array, s, c);
 	return (array);
-}
-
-// ------------------------
-
-	// while (s[i])
-	// {
-
-	// 	if (s[i] == c)
-	// 	{
-	// 		str_len = i - str_len;
-	// 		array[j] = (char *)malloc(str_len + 1 * sizeof(char));
-	// 		if (array[j] == NULL)
-	// 		{
-	//       free(array);
-	// 			return (NULL);
-	//     }
-	// 		ft_memcpy(array[j], &s[len], str_len);
-	// 		array[j][str_len] = '\0';
-	//     str_len += 1;
-	// 		len = i + 1;
-	// 		j++;
-	// 	}
-	// 	else if (s[i + 1] == '\0')
-	// 	{
-	// 		str_len = i - str_len;
-	//     str_len = i - str_len;
-	// 		array[j] = (char *)malloc(str_len * sizeof(char));
-	// 		if (array[j] == NULL)
-	//     {
-	//       free(array);
-	// 			return (NULL);
-	//     }
-	// 		ft_memcpy(array[j], &s[len], str_len);
-	// 	}
-	// }
-
-
-int	main(void)
-{
-	char	**str;
-
-	str = ft_split("Oi Mundo Doido", ' ');
-	// printf("%s\n", *str);
-	// printf("1. %s\n", str[0]);
-	// printf("2. %s\n", str[1]);
-	free(str);
 }
