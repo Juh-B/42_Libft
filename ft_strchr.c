@@ -6,7 +6,7 @@
 /*   By: jcosta-b <jcosta-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 17:34:36 by jcosta-b          #+#    #+#             */
-/*   Updated: 2024/10/30 15:16:37 by jcosta-b         ###   ########.fr       */
+/*   Updated: 2024/10/30 17:15:30 by jcosta-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,20 @@
 // function returns a pointer to the first occurrence of
 // the character c in the string s.
 
-char	*ft_strchr(const char *string, int c)
+char	*ft_strchr(const char *s, int c)
 {
 	int				i;
 	unsigned char	ch;
 
 	ch = (unsigned char)c;
 	i = 0;
-	while (string[i])
+	while (s[i])
 	{
-		if (string[i] == ch)
-			return ((char *)&string[i]);
+		if (s[i] == ch)
+			return ((char *)&s[i]);
 		i++;
 	}
 	if (ch == '\0')
-		return ((char *)&string[i]);
+		return ((char *)&s[i]);
 	return (NULL);
 }

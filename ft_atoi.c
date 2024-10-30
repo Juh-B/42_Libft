@@ -6,7 +6,7 @@
 /*   By: jcosta-b <jcosta-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 12:37:25 by jcosta-b          #+#    #+#             */
-/*   Updated: 2024/10/30 14:08:40 by jcosta-b         ###   ########.fr       */
+/*   Updated: 2024/10/30 17:09:45 by jcosta-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // converts the initial portion of the string pointed to by str to int.
 // Accept spaces at the beggin, sign and stop when can't find number.
 
-int	ft_atoi(const char *str)
+int	ft_atoi(const char *nptr)
 {
 	int	i;
 	int	sign;
@@ -24,17 +24,17 @@ int	ft_atoi(const char *str)
 	i = 0;
 	sign = 1;
 	number = 0;
-	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
+	while (nptr[i] == 32 || (nptr[i] >= 9 && nptr[i] <= 13))
 		i++;
-	if (str[i] == '+' || str[i] == '-')
+	if (nptr[i] == '+' || nptr[i] == '-')
 	{
-		if (str[i] == '-')
+		if (nptr[i] == '-')
 			sign *= -1;
 		i++;
 	}
-	while (ft_isdigit(str[i]) > 0)
+	while (ft_isdigit(nptr[i]) > 0)
 	{
-		number = (number * 10) + (str[i] - '0');
+		number = (number * 10) + (nptr[i] - '0');
 		i++;
 	}
 	return (number * sign);

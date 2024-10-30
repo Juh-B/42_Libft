@@ -37,7 +37,7 @@ $(NAME): $(OBJ)
 
 # Comp lib with bonus
 bonus: $(BONUS_OBJ)
-	ar rcs $(NAME) $^
+	ar rcs $(NAME) $(BONUS_OBJ)
 
 # Comp all files
 %.o: %.c
@@ -55,4 +55,4 @@ fclean: clean
 re: fclean all
 
 # Ghost files
-.PHONY: all clean fclean re
+.PHONY: all bonus clean fclean re
