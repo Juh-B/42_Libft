@@ -6,11 +6,9 @@
 /*   By: jcosta-b <jcosta-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 11:22:09 by jcosta-b          #+#    #+#             */
-/*   Updated: 2024/10/25 11:25:58 by jcosta-b         ###   ########.fr       */
+/*   Updated: 2024/10/31 11:08:37 by jcosta-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-// #include "libft.h"
 
 // Apply the function 'f' to each character of a string passed
 // as an argument, passing its index as the first argument.

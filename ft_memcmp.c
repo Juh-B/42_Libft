@@ -6,7 +6,7 @@
 /*   By: jcosta-b <jcosta-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 11:53:58 by jcosta-b          #+#    #+#             */
-/*   Updated: 2024/10/21 16:30:22 by jcosta-b         ###   ########.fr       */
+/*   Updated: 2024/11/01 11:28:52 by jcosta-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,5 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 			return (((unsigned char *)s1)[i] - ((unsigned char *)s2)[i]);
 		i++;
 	}
-	return (((unsigned char *)s1)[i - 1] - ((unsigned char *)s2)[i - 1]);
+	return (0);
 }

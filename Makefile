@@ -16,6 +16,9 @@ BONUS_SRCS = \
 	ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c \
 	ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c
 
+# .h files
+DESP = libft.h
+
 # Object files
 OBJ = $(SRC:.c=.o)
 
@@ -23,24 +26,28 @@ OBJ = $(SRC:.c=.o)
 BONUS_OBJ = $(BONUS_SRCS:.c=.o)
 
 # Compilator
-CC = gcc
+CC = cc
 
 # Flags
 CFLAGS = -Wall -Wextra -Werror
 
+# Lib with bonus
+ifeq ($(findstring bonus, $(MAKECMDGOALS)), bonus)
+	OBJ += $(BONUS_OBJ)
+endif
+
 # Compilation
 all: $(NAME)
+
+# Comp lib with bonus
+bonus: $(NAME)
 
 # Comp lib
 $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
 
-# Comp lib with bonus
-bonus: $(BONUS_OBJ)
-	ar rcs $(NAME) $(BONUS_OBJ)
-
 # Comp all files
-%.o: %.c
+%.o: %.c $(DESP)
 	$(CC) $(CFLAGS) -c $< -o $@ 
 
 # Clean obj files
